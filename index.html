@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя Погода</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>МОЯ ПОГОДА</h1>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Поиск города...">
+                <button id="searchBtn">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="tabs">
+            <li class="tab active" data-tab="today">Сегодня</li>
+            <li class="tab" data-tab="forecast">Прогноз на 5 дней</li>
+        </ul>
+    </nav>
+
+    <main>
+        <div id="errorView" class="view hidden">
+            <div class="error-content">
+                <picture>
+                    <source srcset="./img/nof_found.avif" type="image/avif">
+                    <source srcset="./img/nof_found.webp" type="image/webp">
+                <img src="./img/nof_found.jpg" alt="404" width="700">
+                </picture>
+                
+                
+            </div>
+        </div>
+
+        <div id="todayView" class="view">
+            <section class="card current-weather">
+                <div class="card-header">
+                    <h3>ТЕКУЩАЯ ПОГОДА</h3>
+                    <span id="currentDate"></span>
+                </div>
+                <div class="current-main">
+                    <div class="current-temp-block">
+                        <img id="currentIcon" src="" alt="icon">
+                        <p id="currentDesc" style="text-transform: capitalize;"></p>
+                    </div>
+                    <div class="current-temp-values">
+                        <h2 id="currentTemp"></h2>
+                        <p>Ощущается как <span id="currentFeel"></span></p>
+                    </div>
+                    <div class="current-details">
+                        <p>Рассвет: <span id="currentSunrise"></span></p>
+                        <p>Закат: <span id="currentSunset"></span></p>
+                        <p>Долгота дня: <span id="currentDuration"></span></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <h3>ПО ЧАСАМ</h3>
+                </div>
+                <div class="hourly-table-container">
+                    <table id="todayHourlyTable">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="card nearby-places">
+                <div class="card-header">
+                    <h3>БЛИЖАЙШИЕ ГОРОДА</h3>
+                </div>
+                <div class="nearby-grid" id="nearbyGrid">
+                </div>
+            </section>
+        </div>
+
+        <div id="forecastView" class="view hidden">
+            <section class="card forecast-days">
+                <div class="days-grid" id="fiveDaysGrid">
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <h3>ПО ЧАСАМ</h3>
+                </div>
+                <div class="hourly-table-container">
+                    <table id="forecastHourlyTable">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
